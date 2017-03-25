@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+    <h1>All Team Information</h1>
+    <% if(teaminfo) { %>
+    <ul>
+      <% for (let item of teaminfo) { %>
+        <% let choice; %>
+        <%if(item.choice === 2){ %>
+          <% choice = "Team Count"; %>
+        <%}else{ %>
+          <%choice = "Number Per Team";%>
+        <%}%>
+          <li>Id:<%= item.id %><br>Team members:<%= item.name %> <%= choice %>:<%= item.choice %> Number:<%= item.number %></li>
+          <br>
+      <% } %>
+    </ul>
+  <% } %>
+
+<%- include('../partials/footer') %>

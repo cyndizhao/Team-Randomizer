@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<h1>Team Picker</h1>
+<form action="" method="post">
+  <div class="box">
+    <span class="label"><label for="names">Names:</span></div>
+    <textarea name="names" rows="8" cols="50" value=""></textarea>
+  </div>
+
+  <div class="box">
+    <label for="choice">Method:</label>
+    <input type="radio" name="choice" value="2">Team Count
+    <input type="radio" name="choice" value="1">Number Per Team
+  </div>
+
+  <div class="box">
+    <span class="label"><label for="">Number:</span></div>
+    <textarea name="number" rows="4" cols="50" value=""></textarea>
+  </div>
+
+  <div class="box">
+    <input type="submit" value="Submit">
+  </div>
+  <% if(team) { %>
+    <% if (Array.isArray(team)) { %>
+      <% for (let i= 1; i<= team.length; i++) { %>
+        <span>
+        <span>Team <%= i %>:</span>
+        <% for (let item of team[i-1]){ %>
+          <span><%= item %></span>
+        <% } %>
+        <div></div>
+      <% } %>
+    <% } else if (typeof(team) === "string") { %>
+      <h4>WARNING: <%= team %>!<h4>
+      </span>
+      <% } %>
+    <% } %>
+</form>
+<%- include('partials/footer') %>
